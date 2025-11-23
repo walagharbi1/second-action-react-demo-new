@@ -1,4 +1,4 @@
-name: Déploiement du projet
+name: Application React – Exécution des tests automatisés
 
 on:
   push:
@@ -24,24 +24,3 @@ jobs:
 
       - name: Exécuter les tests
         run: npm test
-deploy:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Récupération du dépôt
-        uses: actions/checkout@v4
-
-      - name: Installation de Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Installation des dépendances
-        run: npm ci
-
-      - name: Construction du projet
-        run: npm run build
-
-      - name: Déploiement
-        run: echo "Déploiement simulé terminé ..."
